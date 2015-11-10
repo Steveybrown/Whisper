@@ -13,6 +13,8 @@
 		DCC723771BF2712D002FB898 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCC723761BF2712D002FB898 /* Assets.xcassets */; };
 		DCC7237A1BF2712D002FB898 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCC723781BF2712D002FB898 /* LaunchScreen.storyboard */; };
 		DCC723851BF2712D002FB898 /* WhisperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC723841BF2712D002FB898 /* WhisperTests.swift */; };
+		DCC723911BF27221002FB898 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC7238F1BF27221002FB898 /* Constants.swift */; };
+		DCC723921BF27221002FB898 /* WhisperSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC723901BF27221002FB898 /* WhisperSession.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		DCC723801BF2712D002FB898 /* WhisperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhisperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCC723841BF2712D002FB898 /* WhisperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhisperTests.swift; sourceTree = "<group>"; };
 		DCC723861BF2712D002FB898 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCC7238F1BF27221002FB898 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DCC723901BF27221002FB898 /* WhisperSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhisperSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,8 @@
 		DCC7236E1BF2712D002FB898 /* Whisper */ = {
 			isa = PBXGroup;
 			children = (
+				DCC7238F1BF27221002FB898 /* Constants.swift */,
+				DCC723901BF27221002FB898 /* WhisperSession.swift */,
 				DCC7236F1BF2712D002FB898 /* AppDelegate.swift */,
 				DCC723711BF2712D002FB898 /* ViewController.swift */,
 				DCC723731BF2712D002FB898 /* Main.storyboard */,
@@ -198,7 +204,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCC723721BF2712D002FB898 /* ViewController.swift in Sources */,
+				DCC723921BF27221002FB898 /* WhisperSession.swift in Sources */,
 				DCC723701BF2712D002FB898 /* AppDelegate.swift in Sources */,
+				DCC723911BF27221002FB898 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +396,7 @@
 				DCC7238B1BF2712D002FB898 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DCC7238C1BF2712D002FB898 /* Build configuration list for PBXNativeTarget "WhisperTests" */ = {
 			isa = XCConfigurationList;
@@ -396,6 +405,7 @@
 				DCC7238E1BF2712D002FB898 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
