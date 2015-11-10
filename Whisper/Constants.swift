@@ -29,4 +29,17 @@ extension WhisperManager {
         
         static let TransitCompressionQuality: CGFloat = 0.5
     }
+    
+    struct MessageBodyKeys {
+        static let TypeKey = "Type"
+        static let TypePhoto = "Photo"
+        static let TypeVideo = "Video"
+        static let TypeText = "Text"
+        static let TypeCustom = "Custom"
+        
+        static let DataKey = "Data"
+
+        static let ChannelsKey = "Channels"
+        
+    }
 }

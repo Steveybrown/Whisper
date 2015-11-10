@@ -83,10 +83,17 @@ public class WhisperManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowser
     public func session(session: MCSession, didReceiveData data: NSData, fromPeer peerID: MCPeerID) {
         print("\(myPeerId.displayName) recieved data from \(peerID.displayName)")
         
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            self.delegate?.whisperDidRecieveImage(data)
-            NSNotificationCenter.defaultCenter().postNotificationName("Whisper_Recieved_Data", object: nil)
-        })
+        let dictionary: [String: AnyObject] = NSKeyedUnarchiver.unarchiveObjectWithData(data) as! [String: AnyObject]
+        
+        // Check if this device is subscribed to a channel of the message
+        if let channels = dictionary[MessageBodyKeys.ChannelsKey] as! [String]? {
+            if Set(channels).isSubsetOf(Set(subscriptions)) {
+                notifyDelegateDataRecieved(dictionary)
+            }
+        }
+        
+        // Forward on to all connected peers - maybe add a layer of caching
+        rebroadcastToConnectedPeers(data)
     }
     
     public func session(session: MCSession, didReceiveStream stream: NSInputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
@@ -133,13 +140,23 @@ public class WhisperManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowser
     
     //MARK: Communication
     
-    internal func sendData(data: NSData) {
+    internal func sendMessage(details: [String: AnyObject], toChannels: [String]) {
         print("connect peer total = \(peersConnected.count)")
+        
+        // We send to every connected peer, they then handle to forward and deciding if they should respond.
+        // Some operation queue is probably needed here to throttle. 
+        
+        let messageForPeers : NSData = NSKeyedArchiver.archivedDataWithRootObject(details)
+        
         do {
-            try session.sendData(data, toPeers: peersConnected, withMode: .Reliable)
+            try session.sendData(messageForPeers, toPeers: peersConnected, withMode: .Reliable)
         } catch let error as NSError {
             print("Message FAILED to send = \(error)")
         }
+    }
+    
+    private func rebroadcastToConnectedPeers(data: NSData) {
+        // TODO: loop through all sessions and send to connected peers
     }
     
     // MARK: Subscriptions

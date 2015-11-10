@@ -17,6 +17,7 @@
 		DCC723981BF273FF002FB898 /* Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC723941BF273FF002FB898 /* Convenience.swift */; };
 		DCC723991BF273FF002FB898 /* WhisperDelegateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC723951BF273FF002FB898 /* WhisperDelegateHelper.swift */; };
 		DCC7239A1BF273FF002FB898 /* WhisperManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC723961BF273FF002FB898 /* WhisperManager.swift */; };
+		DCC7239C1BF29293002FB898 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC7239B1BF29293002FB898 /* Message.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		DCC723941BF273FF002FB898 /* Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Convenience.swift; sourceTree = "<group>"; };
 		DCC723951BF273FF002FB898 /* WhisperDelegateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhisperDelegateHelper.swift; sourceTree = "<group>"; };
 		DCC723961BF273FF002FB898 /* WhisperManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhisperManager.swift; sourceTree = "<group>"; };
+		DCC7239B1BF29293002FB898 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,15 +88,14 @@
 			isa = PBXGroup;
 			children = (
 				DCC723931BF273FF002FB898 /* Constants.swift */,
-				DCC723941BF273FF002FB898 /* Convenience.swift */,
 				DCC723951BF273FF002FB898 /* WhisperDelegateHelper.swift */,
+				DCC723941BF273FF002FB898 /* Convenience.swift */,
 				DCC723961BF273FF002FB898 /* WhisperManager.swift */,
+				DCC7239B1BF29293002FB898 /* Message.swift */,
 				DCC7236F1BF2712D002FB898 /* AppDelegate.swift */,
 				DCC723711BF2712D002FB898 /* ViewController.swift */,
 				DCC723731BF2712D002FB898 /* Main.storyboard */,
-				DCC723761BF2712D002FB898 /* Assets.xcassets */,
-				DCC723781BF2712D002FB898 /* LaunchScreen.storyboard */,
-				DCC7237B1BF2712D002FB898 /* Info.plist */,
+				DCC7239D1BF2929B002FB898 /* Other */,
 			);
 			path = Whisper;
 			sourceTree = "<group>";
@@ -106,6 +107,16 @@
 				DCC723861BF2712D002FB898 /* Info.plist */,
 			);
 			path = WhisperTests;
+			sourceTree = "<group>";
+		};
+		DCC7239D1BF2929B002FB898 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				DCC723761BF2712D002FB898 /* Assets.xcassets */,
+				DCC723781BF2712D002FB898 /* LaunchScreen.storyboard */,
+				DCC7237B1BF2712D002FB898 /* Info.plist */,
+			);
+			name = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +226,7 @@
 				DCC723701BF2712D002FB898 /* AppDelegate.swift in Sources */,
 				DCC723991BF273FF002FB898 /* WhisperDelegateHelper.swift in Sources */,
 				DCC723971BF273FF002FB898 /* Constants.swift in Sources */,
+				DCC7239C1BF29293002FB898 /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

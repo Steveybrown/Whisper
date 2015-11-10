@@ -35,7 +35,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func advertise(sender: UIButton) {
         if let image = imageView!.image {
-            whisper.sendImage(image)
+            whisper.sendImage(image, toChannels: ["whisper"])
         } else {
             print("View Controller : Image is nil")
         }

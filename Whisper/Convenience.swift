@@ -11,10 +11,17 @@ import Foundation
 
 extension WhisperManager {
     
-    // TODO - Add a boardcasting channel to boardcast the image to.
-    public func sendImage(image: UIImage) {
+    public func sendImage(image: UIImage, toChannels: [String]) {
+        
         if let data = UIImageJPEGRepresentation(image, Constants.TransitCompressionQuality) {
-            sendData(data)
+        
+            let dict: [String: AnyObject] = [
+                MessageBodyKeys.TypeKey: MessageBodyKeys.TypePhoto,
+                MessageBodyKeys.DataKey: data,
+                MessageBodyKeys.ChannelsKey: toChannels
+            ]
+            
+            sendMessage(dict, toChannels: toChannels)
         }
     }
     
