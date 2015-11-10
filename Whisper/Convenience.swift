@@ -11,8 +11,8 @@ import Foundation
 
 extension WhisperManager {
     
-    // TODO - Add a boardcasting channel to boardcase the image to.
-    func sendImage(image: UIImage) {
+    // TODO - Add a boardcasting channel to boardcast the image to.
+    public func sendImage(image: UIImage) {
         if let data = UIImageJPEGRepresentation(image, Constants.TransitCompressionQuality) {
             sendData(data)
         }

@@ -24,6 +24,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 
         whisper.delegate = self
         imagePicker.delegate = self
+        
+        whisper.subscribeTo("whisper")
     }
     
 
@@ -52,7 +54,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if self.view.backgroundColor == UIColor.greenColor() {
             self.view.backgroundColor = UIColor.redColor()
         } else {
-            //self.view.backgroundColor = UIColor.greenColor()
             connectionStatusView.backgroundColor = UIColor.greenColor()
         }
     }

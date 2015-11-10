@@ -23,7 +23,8 @@ public protocol WhisperDelegate {
 public class WhisperManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowserDelegate, MCNearbyServiceAdvertiserDelegate {
     
     var delegate: WhisperDelegate?
-    var peersConnected: [MCPeerID]
+    var peersConnected = [MCPeerID]()
+    lazy private var subscriptions = [String]()
 
     private var session: MCSession
     private var myPeerId: MCPeerID
@@ -44,7 +45,6 @@ public class WhisperManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowser
         session = MCSession(peer: myPeerId, securityIdentity: nil, encryptionPreference: MCEncryptionPreference.None)
         advertiser = MCNearbyServiceAdvertiser(peer: myPeerId, discoveryInfo: nil, serviceType: Constants.ServiceType)
         browser = MCNearbyServiceBrowser(peer: myPeerId, serviceType: Constants.ServiceType)
-        peersConnected = []
         
         super.init()
         session.delegate = self
@@ -54,10 +54,9 @@ public class WhisperManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowser
         
         advertiser.delegate = self
         advertiser.startAdvertisingPeer()
-        
     }
     
-    //MARK: MCSession Delegate
+    //MARK: Session Delegate
     
     public func session(session: MCSession, peer peerID: MCPeerID, didChangeState state: MCSessionState) {
         
@@ -141,5 +140,15 @@ public class WhisperManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowser
         } catch let error as NSError {
             print("Message FAILED to send = \(error)")
         }
+    }
+    
+    // MARK: Subscriptions
+    
+    public func subscribeTo(channel: String) {
+        subscriptions.append(channel)
+    }
+    
+    public func unSubscribeFrom(channel:String) {
+        subscriptions = subscriptions.filter() { $0 != channel }
     }
 }
