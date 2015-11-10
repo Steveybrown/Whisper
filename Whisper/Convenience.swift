@@ -15,13 +15,13 @@ extension WhisperManager {
         
         if let data = UIImageJPEGRepresentation(image, Constants.TransitCompressionQuality) {
         
-            let dict: [String: AnyObject] = [
+            let details: [String: AnyObject] = [
                 MessageBodyKeys.TypeKey: MessageBodyKeys.TypePhoto,
                 MessageBodyKeys.DataKey: data,
                 MessageBodyKeys.ChannelsKey: toChannels
             ]
             
-            sendMessage(dict, toChannels: toChannels)
+            sendMessage(details)
         }
     }
     

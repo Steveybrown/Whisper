@@ -93,7 +93,7 @@ public class WhisperManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowser
         }
         
         // Forward on to all connected peers - maybe add a layer of caching
-        rebroadcastToConnectedPeers(data)
+        broadcastToConnectedPeers(data)
     }
     
     public func session(session: MCSession, didReceiveStream stream: NSInputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
@@ -140,23 +140,22 @@ public class WhisperManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowser
     
     //MARK: Communication
     
-    internal func sendMessage(details: [String: AnyObject], toChannels: [String]) {
+    internal func sendMessage(details: [String: AnyObject]) {
         print("connect peer total = \(peersConnected.count)")
         
         // We send to every connected peer, they then handle to forward and deciding if they should respond.
         // Some operation queue is probably needed here to throttle. 
-        
         let messageForPeers : NSData = NSKeyedArchiver.archivedDataWithRootObject(details)
-        
+        broadcastToConnectedPeers(messageForPeers)
+    }
+    
+    private func broadcastToConnectedPeers(data: NSData) {
+        // TODO: loop through all sessions and send to connected peers
         do {
-            try session.sendData(messageForPeers, toPeers: peersConnected, withMode: .Reliable)
+            try session.sendData(data, toPeers: peersConnected, withMode: .Reliable)
         } catch let error as NSError {
             print("Message FAILED to send = \(error)")
         }
-    }
-    
-    private func rebroadcastToConnectedPeers(data: NSData) {
-        // TODO: loop through all sessions and send to connected peers
     }
     
     // MARK: Subscriptions
