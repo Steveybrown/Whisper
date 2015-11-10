@@ -1,0 +1,403 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DCC723701BF2712D002FB898 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC7236F1BF2712D002FB898 /* AppDelegate.swift */; };
+		DCC723721BF2712D002FB898 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC723711BF2712D002FB898 /* ViewController.swift */; };
+		DCC723751BF2712D002FB898 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCC723731BF2712D002FB898 /* Main.storyboard */; };
+		DCC723771BF2712D002FB898 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCC723761BF2712D002FB898 /* Assets.xcassets */; };
+		DCC7237A1BF2712D002FB898 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCC723781BF2712D002FB898 /* LaunchScreen.storyboard */; };
+		DCC723851BF2712D002FB898 /* WhisperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC723841BF2712D002FB898 /* WhisperTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DCC723811BF2712D002FB898 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DCC723641BF2712D002FB898 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DCC7236B1BF2712D002FB898;
+			remoteInfo = Whisper;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DCC7236C1BF2712D002FB898 /* Whisper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Whisper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCC7236F1BF2712D002FB898 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DCC723711BF2712D002FB898 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DCC723741BF2712D002FB898 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DCC723761BF2712D002FB898 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DCC723791BF2712D002FB898 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DCC7237B1BF2712D002FB898 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCC723801BF2712D002FB898 /* WhisperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhisperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCC723841BF2712D002FB898 /* WhisperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhisperTests.swift; sourceTree = "<group>"; };
+		DCC723861BF2712D002FB898 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DCC723691BF2712D002FB898 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCC7237D1BF2712D002FB898 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DCC723631BF2712D002FB898 = {
+			isa = PBXGroup;
+			children = (
+				DCC7236E1BF2712D002FB898 /* Whisper */,
+				DCC723831BF2712D002FB898 /* WhisperTests */,
+				DCC7236D1BF2712D002FB898 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DCC7236D1BF2712D002FB898 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DCC7236C1BF2712D002FB898 /* Whisper.app */,
+				DCC723801BF2712D002FB898 /* WhisperTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DCC7236E1BF2712D002FB898 /* Whisper */ = {
+			isa = PBXGroup;
+			children = (
+				DCC7236F1BF2712D002FB898 /* AppDelegate.swift */,
+				DCC723711BF2712D002FB898 /* ViewController.swift */,
+				DCC723731BF2712D002FB898 /* Main.storyboard */,
+				DCC723761BF2712D002FB898 /* Assets.xcassets */,
+				DCC723781BF2712D002FB898 /* LaunchScreen.storyboard */,
+				DCC7237B1BF2712D002FB898 /* Info.plist */,
+			);
+			path = Whisper;
+			sourceTree = "<group>";
+		};
+		DCC723831BF2712D002FB898 /* WhisperTests */ = {
+			isa = PBXGroup;
+			children = (
+				DCC723841BF2712D002FB898 /* WhisperTests.swift */,
+				DCC723861BF2712D002FB898 /* Info.plist */,
+			);
+			path = WhisperTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DCC7236B1BF2712D002FB898 /* Whisper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DCC723891BF2712D002FB898 /* Build configuration list for PBXNativeTarget "Whisper" */;
+			buildPhases = (
+				DCC723681BF2712D002FB898 /* Sources */,
+				DCC723691BF2712D002FB898 /* Frameworks */,
+				DCC7236A1BF2712D002FB898 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Whisper;
+			productName = Whisper;
+			productReference = DCC7236C1BF2712D002FB898 /* Whisper.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DCC7237F1BF2712D002FB898 /* WhisperTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DCC7238C1BF2712D002FB898 /* Build configuration list for PBXNativeTarget "WhisperTests" */;
+			buildPhases = (
+				DCC7237C1BF2712D002FB898 /* Sources */,
+				DCC7237D1BF2712D002FB898 /* Frameworks */,
+				DCC7237E1BF2712D002FB898 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DCC723821BF2712D002FB898 /* PBXTargetDependency */,
+			);
+			name = WhisperTests;
+			productName = WhisperTests;
+			productReference = DCC723801BF2712D002FB898 /* WhisperTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DCC723641BF2712D002FB898 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Stephen Brown";
+				TargetAttributes = {
+					DCC7236B1BF2712D002FB898 = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					DCC7237F1BF2712D002FB898 = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = DCC7236B1BF2712D002FB898;
+					};
+				};
+			};
+			buildConfigurationList = DCC723671BF2712D002FB898 /* Build configuration list for PBXProject "Whisper" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DCC723631BF2712D002FB898;
+			productRefGroup = DCC7236D1BF2712D002FB898 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DCC7236B1BF2712D002FB898 /* Whisper */,
+				DCC7237F1BF2712D002FB898 /* WhisperTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DCC7236A1BF2712D002FB898 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCC7237A1BF2712D002FB898 /* LaunchScreen.storyboard in Resources */,
+				DCC723771BF2712D002FB898 /* Assets.xcassets in Resources */,
+				DCC723751BF2712D002FB898 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCC7237E1BF2712D002FB898 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DCC723681BF2712D002FB898 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCC723721BF2712D002FB898 /* ViewController.swift in Sources */,
+				DCC723701BF2712D002FB898 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DCC7237C1BF2712D002FB898 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCC723851BF2712D002FB898 /* WhisperTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DCC723821BF2712D002FB898 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DCC7236B1BF2712D002FB898 /* Whisper */;
+			targetProxy = DCC723811BF2712D002FB898 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DCC723731BF2712D002FB898 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DCC723741BF2712D002FB898 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DCC723781BF2712D002FB898 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DCC723791BF2712D002FB898 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DCC723871BF2712D002FB898 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DCC723881BF2712D002FB898 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DCC7238A1BF2712D002FB898 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Whisper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.steveybrown.Whisper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DCC7238B1BF2712D002FB898 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Whisper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.steveybrown.Whisper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		DCC7238D1BF2712D002FB898 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = WhisperTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.steveybrown.WhisperTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Whisper.app/Whisper";
+			};
+			name = Debug;
+		};
+		DCC7238E1BF2712D002FB898 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = WhisperTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.steveybrown.WhisperTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Whisper.app/Whisper";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DCC723671BF2712D002FB898 /* Build configuration list for PBXProject "Whisper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCC723871BF2712D002FB898 /* Debug */,
+				DCC723881BF2712D002FB898 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DCC723891BF2712D002FB898 /* Build configuration list for PBXNativeTarget "Whisper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCC7238A1BF2712D002FB898 /* Debug */,
+				DCC7238B1BF2712D002FB898 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DCC7238C1BF2712D002FB898 /* Build configuration list for PBXNativeTarget "WhisperTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCC7238D1BF2712D002FB898 /* Debug */,
+				DCC7238E1BF2712D002FB898 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DCC723641BF2712D002FB898 /* Project object */;
+}
