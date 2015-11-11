@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC68BD451BF3D63D00C4E778 /* SessionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC68BD441BF3D63D00C4E778 /* SessionFactory.swift */; };
 		DCC723701BF2712D002FB898 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC7236F1BF2712D002FB898 /* AppDelegate.swift */; };
 		DCC723721BF2712D002FB898 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC723711BF2712D002FB898 /* ViewController.swift */; };
 		DCC723751BF2712D002FB898 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCC723731BF2712D002FB898 /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DC68BD441BF3D63D00C4E778 /* SessionFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionFactory.swift; sourceTree = "<group>"; };
 		DCC7236C1BF2712D002FB898 /* Whisper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Whisper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCC7236F1BF2712D002FB898 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCC723711BF2712D002FB898 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				DCC723951BF273FF002FB898 /* WhisperDelegateHelper.swift */,
 				DCC723941BF273FF002FB898 /* Convenience.swift */,
 				DCC723961BF273FF002FB898 /* WhisperManager.swift */,
+				DC68BD441BF3D63D00C4E778 /* SessionFactory.swift */,
 				DCC7239B1BF29293002FB898 /* Message.swift */,
 				DCC7236F1BF2712D002FB898 /* AppDelegate.swift */,
 				DCC723711BF2712D002FB898 /* ViewController.swift */,
@@ -226,6 +229,7 @@
 				DCC723701BF2712D002FB898 /* AppDelegate.swift in Sources */,
 				DCC723991BF273FF002FB898 /* WhisperDelegateHelper.swift in Sources */,
 				DCC723971BF273FF002FB898 /* Constants.swift in Sources */,
+				DC68BD451BF3D63D00C4E778 /* SessionFactory.swift in Sources */,
 				DCC7239C1BF29293002FB898 /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

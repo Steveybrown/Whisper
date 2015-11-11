@@ -26,7 +26,7 @@ public class WhisperManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowser
     var peersConnected = [MCPeerID]()
     lazy private var subscriptions = [String]()
 
-    private var session: MCSession
+    private var sessions = [MCSession]()
     private var myPeerId: MCPeerID
     private var advertiser: MCNearbyServiceAdvertiser
     private var browser: MCNearbyServiceBrowser
@@ -42,12 +42,11 @@ public class WhisperManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowser
             userDefaults.setObject(peerIdData, forKey: Constants.DevicePeerKey)
         }
         
-        session = MCSession(peer: myPeerId, securityIdentity: nil, encryptionPreference: MCEncryptionPreference.None)
         advertiser = MCNearbyServiceAdvertiser(peer: myPeerId, discoveryInfo: nil, serviceType: Constants.ServiceType)
         browser = MCNearbyServiceBrowser(peer: myPeerId, serviceType: Constants.ServiceType)
         
         super.init()
-        session.delegate = self
+        createSession()
         
         browser.delegate = self
         browser.startBrowsingForPeers()
@@ -57,6 +56,13 @@ public class WhisperManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowser
     }
     
     //MARK: Session Delegate
+    
+    private func createSession() -> MCSession {
+        let session = MCSession(peer: myPeerId, securityIdentity: nil, encryptionPreference: MCEncryptionPreference.None)
+        session.delegate = self
+        sessions.append(session)
+        return session
+    }
     
     public func session(session: MCSession, peer peerID: MCPeerID, didChangeState state: MCSessionState) {
         
@@ -78,11 +84,12 @@ public class WhisperManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowser
     }
     
     public func session(session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, withProgress progress: NSProgress) {
+        fatalError("Not yet implemented")
     }
     
     public func session(session: MCSession, didReceiveData data: NSData, fromPeer peerID: MCPeerID) {
         print("\(myPeerId.displayName) recieved data from \(peerID.displayName)")
-        
+    
         let dictionary: [String: AnyObject] = NSKeyedUnarchiver.unarchiveObjectWithData(data) as! [String: AnyObject]
         
         // Check if this device is subscribed to a channel of the message
@@ -92,18 +99,33 @@ public class WhisperManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowser
             }
         }
         
-        // Forward on to all connected peers - maybe add a layer of caching
-        broadcastToConnectedPeers(data)
+        // Forward on to all connected peers - 
+        // excluding the peer that sent it, this ensure a constant ping-pong doesnt happen
+        broadcastToConnectedPeers(data, excludePeer: peerID)
     }
     
     public func session(session: MCSession, didReceiveStream stream: NSInputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
+        fatalError("Not yet implemented")
     }
     
     public func session(session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, atURL localURL: NSURL, withError error: NSError?) {
+        fatalError("Not yet implemented")
     }
     
     public func session(session: MCSession, didReceiveCertificate certificate: [AnyObject]?, fromPeer peerID: MCPeerID, certificateHandler: (Bool) -> Void) {
         certificateHandler(true)
+    }
+    
+    private func getAvailableSession() -> MCSession {
+        
+        let sessionWithSpaceAvailable = sessions.filter {(session) in session.connectedPeers.count < 8}.first
+        
+        // check if we were able to get a session from exisiting otherwise create one.
+        if let session = sessionWithSpaceAvailable {
+            return session
+        } else {
+            return createSession()
+        }
     }
     
     //MARK: Browser Delegate
@@ -112,6 +134,9 @@ public class WhisperManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowser
         // Deterministic value to decide who connects.
         if myPeerId.hash > peerID.hash {
             print("\(myPeerId.displayName) is inviting  \(peerID.displayName) to connect")
+            
+            // Get an available session for the peer
+            let session = getAvailableSession()
             browser.invitePeer(peerID, toSession: session, withContext: nil, timeout: 0.0)
         }
     }
@@ -131,6 +156,7 @@ public class WhisperManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowser
     
     public func advertiser(advertiser: MCNearbyServiceAdvertiser, didReceiveInvitationFromPeer peerID: MCPeerID, withContext context: NSData?, invitationHandler: (Bool, MCSession) -> Void) {
         print("\(myPeerId.displayName) is accepting invite")
+        let session = getAvailableSession()
         invitationHandler(true, session)
     }
     
@@ -149,12 +175,26 @@ public class WhisperManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowser
         broadcastToConnectedPeers(messageForPeers)
     }
     
-    private func broadcastToConnectedPeers(data: NSData) {
-        // TODO: loop through all sessions and send to connected peers
-        do {
-            try session.sendData(data, toPeers: peersConnected, withMode: .Reliable)
-        } catch let error as NSError {
-            print("Message FAILED to send = \(error)")
+    private func broadcastToConnectedPeers(data: NSData, excludePeer: MCPeerID?=nil) {
+        for s in sessions {
+            do {
+                var peers = s.connectedPeers
+                
+                if let excludePeer = excludePeer {
+                    if peers.contains(excludePeer) {
+                        peers.removeObject(excludePeer)
+                    }
+                }
+                
+                // Ensure we have a sufficent # of peers to send to after potentially removing the only connected peer
+                guard peers.count != 0 else {
+                    return
+                }
+                
+                try s.sendData(data, toPeers: peers, withMode: .Reliable)
+            } catch let error as NSError {
+                print("Message FAILED to send = \(error)")
+            }
         }
     }
     

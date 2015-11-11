@@ -16,8 +16,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     var whisper = WhisperManager(peerName: UIDevice.currentDevice().name)
     var imagePicker = UIImagePickerController()
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         NSNotificationCenter.defaultCenter().addObserver(self, selector:"dataHasBeenRecieved", name: "Whisper_Recieved_Data", object: nil)
