@@ -92,7 +92,8 @@ public class WhisperManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowser
     
         let dictionary: [String: AnyObject] = NSKeyedUnarchiver.unarchiveObjectWithData(data) as! [String: AnyObject]
         
-        // Check if this device is subscribed to a channel of the message
+        // Check if this device is subscribed to a channel of the message 
+        // -TODO need to implement some sort of cache and check if the data recieved unique id has already been delegated to respondent
         if let channels = dictionary[MessageBodyKeys.ChannelsKey] as! [String]? {
             if Set(channels).isSubsetOf(Set(subscriptions)) {
                 notifyDelegateDataRecieved(dictionary)
@@ -100,7 +101,7 @@ public class WhisperManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowser
         }
         
         // Forward on to all connected peers - 
-        // excluding the peer that sent it, this ensure a constant ping-pong doesnt happen
+        // excluding the peer that sent it, this ensure a constant ping-pong doesn't happen
         broadcastToConnectedPeers(data, excludePeer: peerID)
     }
     
@@ -166,13 +167,19 @@ public class WhisperManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowser
     
     //MARK: Communication
     
-    internal func sendMessage(details: [String: AnyObject]) {
-        print("connect peer total = \(peersConnected.count)")
+    internal func sendMessage(data: NSData, toChannels: [String]) {
+        
+        let messageDetail: [String: AnyObject] = [
+            MessageBodyKeys.UniqueIdentifier: NSUUID().UUIDString,
+            MessageBodyKeys.TypeKey: MessageBodyKeys.TypeCustom,
+            MessageBodyKeys.DataKey: data,
+            MessageBodyKeys.ChannelsKey: toChannels
+        ]
         
         // We send to every connected peer, they then handle to forward and deciding if they should respond.
         // Some operation queue is probably needed here to throttle. 
-        let messageForPeers : NSData = NSKeyedArchiver.archivedDataWithRootObject(details)
-        broadcastToConnectedPeers(messageForPeers)
+        let messageData : NSData = NSKeyedArchiver.archivedDataWithRootObject(messageDetail)
+        broadcastToConnectedPeers(messageData)
     }
     
     private func broadcastToConnectedPeers(data: NSData, excludePeer: MCPeerID?=nil) {
@@ -191,6 +198,7 @@ public class WhisperManager: NSObject, MCSessionDelegate, MCNearbyServiceBrowser
                     return
                 }
                 
+                print("Sending to = \(peersConnected.count) peers ")
                 try s.sendData(data, toPeers: peers, withMode: .Reliable)
             } catch let error as NSError {
                 print("Message FAILED to send = \(error)")

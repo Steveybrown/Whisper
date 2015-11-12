@@ -41,5 +41,7 @@ extension WhisperManager {
 
         static let ChannelsKey = "Channels"
         
+        static let UniqueIdentifier = "Id"
+        
     }
 }

@@ -12,16 +12,8 @@ import Foundation
 extension WhisperManager {
     
     public func sendImage(image: UIImage, toChannels: [String]) {
-        
         if let data = UIImageJPEGRepresentation(image, Constants.TransitCompressionQuality) {
-        
-            let details: [String: AnyObject] = [
-                MessageBodyKeys.TypeKey: MessageBodyKeys.TypePhoto,
-                MessageBodyKeys.DataKey: data,
-                MessageBodyKeys.ChannelsKey: toChannels
-            ]
-            
-            sendMessage(details)
+            sendMessage(data, toChannels: toChannels)
         }
     }
     
